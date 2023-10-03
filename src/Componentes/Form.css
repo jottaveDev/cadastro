@@ -1,0 +1,122 @@
+form {
+  width: 100%;
+  max-width: 572px;
+  height: 512px;
+  border-radius: 4px;
+  background: var(--bg-form);
+  margin: 0 auto;
+  padding: 5.5rem 8rem;
+}
+
+h1 {
+  color: #D4CCB6;
+  font-family: Poppins;
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+h1::before {
+  content: '';
+  display: inline-block;
+  align-items: center;
+  background: url('../assets/log-in.svg') no-repeat center center;
+  width: 24px;
+  height: 24px;
+}
+
+p {
+  color: var(--text);
+  font-family: Roboto;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 24px;
+  margin-bottom: 27px;
+}
+
+form div {
+  margin-bottom: 20px;
+}
+
+label {
+  display: inline-block;
+  color: var(--text);
+  font-family: Poppins;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+label:last-child {
+  color: var(--text-input);
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  margin-left: 5px;
+}
+
+input[type="email"],
+input[type="password"] {
+  display: block;
+  width: 100%;
+  max-width: 335px;
+  height: 44px;
+  border-radius: 4px;
+  border: 1px solid #868686;
+  outline: none;
+  padding-left: 10px;
+  background-color: transparent;
+  color: var(--text-input);
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border: 1px solid #FFC632 !important;
+  box-shadow: 0px 0px 0px 1px #FFDE88;
+}
+
+input[type="email"].error,
+input[type="password"].error {
+  border-color: red;
+}
+
+input::placeholder {
+  color: var(--text-input);
+  font-family: Roboto;
+  font-size: 14px;
+}
+
+button {
+  width: 100%;
+  max-width: 335px;
+  padding: 1.2rem 1.4rem;
+  gap: 10px;
+  border-radius: 4px;
+  background: #FFC632;
+  color: #473404;
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.27px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: .3s;
+}
+
+button:hover {
+  opacity: .9;
+}
+
+@media (max-width: 600px) {
+  .main-form {
+    padding: 0;
+  }
+  .main-form form {
+    padding: 2rem 4rem;
+    background: transparent;
+  }
+}

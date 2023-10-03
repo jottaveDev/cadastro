@@ -1,0 +1,42 @@
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.main-form {
+  flex: 1;
+  padding: 20px;
+}
+
+.main-img {
+  flex: 1;
+}
+
+.main-img img {
+  width: 100%;
+  height: 100vh;
+  max-height: 100vh;
+  object-fit: cover;
+}
+
+@media (max-width: 980px) {
+  .main-img {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  main {
+    min-height: calc(100vh - 70px);
+  }
+  .main-form {
+    padding: 0;
+  }
+  .main-form form {
+    padding: 2rem 4rem;
+    background: transparent;
+  }
+}
