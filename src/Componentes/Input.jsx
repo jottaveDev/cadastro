@@ -19,6 +19,7 @@ const Input = ({
         onChange={onChange}
         onBlur={onBlur}
         placeholder={placeHolder}
+        style={{ borderColor: `${error ? 'red' : ''}` }}
       />
       {error && <p style={{ marginTop: '6px', fontSize: '14px' }}>{error}</p>}
     </div>
