@@ -70,10 +70,12 @@ input[type="password"] {
   padding-left: 10px;
   background-color: transparent;
   color: var(--text-input);
+  transition: border .3s ease;
 }
 
 input[type="email"]:focus,
 input[type="password"]:focus {
+  transition: .3s ease;
   border: 1px solid #FFC632 !important;
   box-shadow: 0px 0px 0px 1px #FFDE88;
 }
@@ -104,7 +106,7 @@ button {
   text-transform: uppercase;
   border: none;
   cursor: pointer;
-  transition: .3s;
+  transition: opacity .3s ease;
 }
 
 button:hover {
