@@ -6,11 +6,29 @@ const Form = () => {
   const email = useForm('email');
   const senha = useForm('password');
 
+  const configApi = {
+    method: 'POST',
+    body: JSON.stringify({
+      email: email.value,
+      senha: senha.value,
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  };
+
+  const postDataApi = async (url, config) => {
+    const response = await fetch(url, config);
+    const dados = await response.json();
+
+    console.log(dados);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
     if (email.validate() && senha.validate()) {
-      console.log('Enviado');
+      postDataApi('https://jsonplaceholder.typicode.com/posts', configApi);
     } else {
       console.log('Ops, erro');
     }

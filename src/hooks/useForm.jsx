@@ -9,7 +9,7 @@ const useForm = (type) => {
   const [value, setValue] = useState('');
   const [error, setError] = useState(null);
 
-  function validate(value) {
+  const validate = (value) => {
     if (type === false) return true;
     if (types[type] && !types[type].test(value)) {
       setError('Digite um valor válido!');
@@ -18,14 +18,12 @@ const useForm = (type) => {
       setError(null);
       return true;
     }
-  }
+  };
 
-  function onChange(event) {
-    if (error) {
-      setValue(event.target.value);
-    }
-    validate(event.target.value);
-  }
+  const onChange = ({ target }) => {
+    setValue(target.value);
+    setError(null);
+  };
 
   return {
     value,

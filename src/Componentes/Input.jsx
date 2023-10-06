@@ -3,8 +3,8 @@ const Input = ({
   label,
   type,
   value,
-  onChange,
   error,
+  onChange,
   onBlur,
   placeHolder,
 }) => {
