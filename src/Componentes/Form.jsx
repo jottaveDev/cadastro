@@ -9,8 +9,9 @@ const Form = () => {
   const configApi = {
     method: 'POST',
     body: JSON.stringify({
-      email: email.value,
-      senha: senha.value,
+      Nome: email.value,
+      Email: email.value,
+      Senha: senha.value,
     }),
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
@@ -28,7 +29,7 @@ const Form = () => {
     event.preventDefault();
 
     if (email.validate() && senha.validate()) {
-      postDataApi('https://jsonplaceholder.typicode.com/posts', configApi);
+      postDataApi('http://127.0.0.1:5000/cadastrar', configApi);
     } else {
       console.log('Ops, erro');
     }
