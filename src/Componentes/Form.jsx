@@ -8,21 +8,25 @@ const Form = () => {
 
   const configApi = {
     method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
     body: JSON.stringify({
       Nome: email.value,
       Email: email.value,
       Senha: senha.value,
     }),
-    headers: {
-      'Content-type': 'application/json; charset=UTF-8',
-    },
   };
 
   const postDataApi = async (url, config) => {
-    const response = await fetch(url, config);
-    const dados = await response.json();
+    try {
+      const response = await fetch(url, config);
+      const dados = await response.json();
 
-    console.log(dados);
+      return dados;
+    } catch (error) {
+      email.setError('Email já cadastrado');
+    }
   };
 
   const handleSubmit = (event) => {
@@ -30,8 +34,6 @@ const Form = () => {
 
     if (email.validate() && senha.validate()) {
       postDataApi('http://127.0.0.1:5000/cadastrar', configApi);
-    } else {
-      console.log('Ops, erro');
     }
   };
 
