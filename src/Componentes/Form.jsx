@@ -1,9 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import useForm from '../hooks/useForm.jsx';
 import Input from './Input.jsx';
 
 const Form = () => {
   const email = useForm('email');
   const senha = useForm('password');
+  const navigate = useNavigate();
 
   const configApi = {
     method: 'POST',
@@ -21,6 +23,10 @@ const Form = () => {
     try {
       const response = await fetch(url, config);
       const dados = await response.json();
+
+      localStorage.setItem('email', email.value);
+      localStorage.setItem('senha', senha.value);
+      navigate('/login');
 
       return dados;
     } catch (error) {
