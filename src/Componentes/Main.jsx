@@ -1,14 +1,14 @@
 import sideImage from '../assets/side-image.png';
 import Form from './Form';
-import './Main.css';
+import styles from '../App.module.css';
 
 const Main = () => {
   return (
-    <main>
-      <section className="main-form">
+    <main className={styles.main}>
+      <section className={styles.mainForm}>
         <Form />
       </section>
-      <section className="main-img">
+      <section className={styles.mainImg}>
         <img src={sideImage} alt="" />
       </section>
     </main>

@@ -21,7 +21,11 @@ const Input = ({
         placeholder={placeHolder}
         style={{ borderColor: `${error ? 'red' : ''}`, marginBottom: '0' }}
       />
-      {error && <p style={{ marginTop: '6px', fontSize: '14px' }}>{error}</p>}
+      {error && (
+        <p style={{ marginTop: '6px', fontSize: '14px', marginBottom: '0' }}>
+          {error}
+        </p>
+      )}
     </div>
   );
 };

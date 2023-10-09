@@ -1,4 +1,52 @@
-form {
+:root {
+  --bg: #191816;
+  --bg-form: #24221F;
+  --text: #AFB6C2;
+  --text-input: #A9AFB9;
+}
+
+body {
+  background: var(--bg);
+  position: relative;
+  height: 100vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.header {
+  padding: 0 4rem;
+  padding-top: 41px;
+  position: absolute;
+  width: 100%;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.mainForm {
+  flex: 1;
+  padding: 20px;
+}
+
+.mainForm form {
   width: 100%;
   max-width: 572px;
   height: 512px;
@@ -8,7 +56,7 @@ form {
   padding: 5.5rem 8rem;
 }
 
-h1 {
+.mainForm h1 {
   color: #D4CCB6;
   font-family: Poppins;
   font-size: 2.4rem;
@@ -19,29 +67,32 @@ h1 {
   gap: 10px;
 }
 
-h1::before {
+.mainForm h1::before {
   content: '';
   display: inline-block;
   align-items: center;
-  background: url('../assets/log-in.svg') no-repeat center center;
+  background: url('./assets/log-in.svg') no-repeat center center;
   width: 24px;
   height: 24px;
 }
 
-p {
+.mainForm h1 ~ p {
+  margin-bottom: 27px;
+}
+
+.mainForm p {
   color: var(--text);
   font-family: Roboto;
   font-size: 1.6rem;
   font-weight: 500;
   line-height: 24px;
-  margin-bottom: 27px;
 }
 
-form div {
+.mainForm div {
   margin-bottom: 20px;
 }
 
-label {
+.mainForm div label {
   display: inline-block;
   color: var(--text);
   font-family: Poppins;
@@ -50,7 +101,7 @@ label {
   margin-bottom: 5px;
 }
 
-label:last-child {
+.mainForm div label:last-child {
   color: var(--text-input);
   font-family: Roboto;
   font-size: 16px;
@@ -58,7 +109,7 @@ label:last-child {
   margin-left: 5px;
 }
 
-input[type="email"],
+.mainForm div input[type="email"],
 input[type="password"] {
   display: block;
   width: 100%;
@@ -73,25 +124,20 @@ input[type="password"] {
   transition: border .3s ease;
 }
 
-input[type="email"]:focus,
+.mainForm div input[type="email"]:focus,
 input[type="password"]:focus {
   transition: .3s ease;
   border: 1px solid #FFC632 !important;
   box-shadow: 0px 0px 0px 1px #FFDE88;
 }
 
-input[type="email"].error,
-input[type="password"].error {
-  border-color: red;
-}
-
-input::placeholder {
+.mainForm div input::placeholder {
   color: var(--text-input);
   font-family: Roboto;
   font-size: 14px;
 }
 
-button {
+.mainForm button {
   width: 100%;
   max-width: 335px;
   padding: 1.2rem 1.4rem;
@@ -109,15 +155,47 @@ button {
   transition: opacity .3s ease;
 }
 
-button:hover {
+.mainForm button:hover {
   opacity: .9;
 }
 
+.mainImg {
+  flex: 1;
+}
+
+.mainImg  img {
+  width: 100%;
+  height: 100vh;
+  max-height: 100vh;
+  object-fit: cover;
+}
+
+.esqueceuSenha a {
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.6rem;
+  color: var(--text);
+  font-family: Roboto;
+  margin: .5rem 0;
+}
+
+@media (max-width: 980px) {
+  .mainImg {
+    display: none;
+  }
+}
+
 @media (max-width: 600px) {
-  .main-form {
+  .header {
+    position: absolute;
+  }
+  .main {
+    min-height: calc(100vh - 70px);
+  }
+  .mainForm {
     padding: 0;
   }
-  .main-form form {
+  .mainForm form {
     padding: 2rem 4rem;
     background: transparent;
   }

@@ -1,6 +1,5 @@
 import useForm from '../hooks/useForm.jsx';
 import Input from './Input.jsx';
-import './Form.css';
 
 const Form = () => {
   const email = useForm('email');
