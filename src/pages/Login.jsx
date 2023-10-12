@@ -5,6 +5,7 @@ import styles from '../App.module.css';
 import useForm from '../hooks/useForm';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import Head from '../Componentes/Head';
 
 const Home = () => {
   const email = useForm('email');
@@ -45,6 +46,7 @@ const Home = () => {
 
   return (
     <>
+      <Head title="JE | Login" description="Página de Login." />
       <Header />
       <main className={styles.main}>
         <section className={styles.mainForm}>
