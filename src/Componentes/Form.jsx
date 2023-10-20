@@ -1,35 +1,25 @@
-import { useNavigate } from 'react-router-dom';
 import useForm from '../hooks/useForm.jsx';
 import Input from './Input.jsx';
+import Loading from './Loading.jsx';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const Form = () => {
   const email = useForm('email');
   const senha = useForm('password');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-
-  const configApi = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      Nome: email.value,
-      Email: email.value,
-      Senha: senha.value,
-    }),
-  };
 
   const postDataApi = async (url, config) => {
     try {
+      setLoading(true);
       const response = await fetch(url, config);
       const dados = await response.json();
-
-      localStorage.setItem('email', email.value);
-      localStorage.setItem('senha', senha.value);
       navigate('/login');
 
       return dados;
     } catch (error) {
+      setLoading(false);
       email.setError('Email já cadastrado');
     }
   };
@@ -38,14 +28,24 @@ const Form = () => {
     event.preventDefault();
 
     if (email.validate() && senha.validate()) {
-      postDataApi('http://127.0.0.1:5000/cadastrar', configApi);
+      postDataApi('http://127.0.0.1:5000/cadastrar', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          Nome: email.value,
+          Email: email.value,
+          Senha: senha.value,
+        }),
+      });
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <h1>Faça seu cadastro</h1>
-      <p>Cadastre suas informações.</p>
+      <p style={{ marginBottom: '1.6rem' }}>Cadastre suas informações.</p>
       <Input
         label="Email"
         id="email"
@@ -64,7 +64,7 @@ const Form = () => {
         <input type="checkbox" name="termos" id="termos" required />
         <label htmlFor="termos">Aceito os termos</label>
       </div>
-      <button type="submit">Cadastrar</button>
+      <button type="submit">{loading ? <Loading /> : 'Cadastrar'}</button>
     </form>
   );
 };
