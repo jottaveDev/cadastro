@@ -1,0 +1,20 @@
+.page404 {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+}
+
+.page404 h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.page404 a {
+  display: inline-block;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #fff;
+}

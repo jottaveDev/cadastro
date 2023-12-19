@@ -1,0 +1,12 @@
+.header {
+  padding: 0 4rem;
+  padding-top: 41px;
+  position: absolute;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .header {
+    position: absolute;
+  }
+}

@@ -1,0 +1,27 @@
+:root {
+  --bg: #191816;
+  --bg-form: #24221f;
+  --text: #afb6c2;
+  --text-input: #a9afb9;
+}
+
+body {
+  background: var(--bg);
+  position: relative;
+  height: 100vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+html {
+  font-size: 62.5%;
+}

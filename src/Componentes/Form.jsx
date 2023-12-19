@@ -1,26 +1,27 @@
-import useForm from '../hooks/useForm.jsx';
-import Input from './Input.jsx';
-import Loading from './Loading.jsx';
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import styles from "../Componentes/Form.module.css";
+import useForm from "../hooks/useForm.jsx";
+import Input from "./Input.jsx";
+import Loading from "./Loading.jsx";
 
 const Form = () => {
-  const email = useForm('email');
-  const senha = useForm('password');
+  const email = useForm("email");
+  const senha = useForm("password");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const postDataApi = async (url, config) => {
+  const postDataApi = async (url) => {
     try {
       setLoading(true);
-      const response = await fetch(url, config);
+      const response = await fetch(url);
       const dados = await response.json();
-      navigate('/login');
+      navigate("/login");
 
       return dados;
     } catch (error) {
       setLoading(false);
-      email.setError('Email já cadastrado');
+      email.setError("Email já cadastrado");
     }
   };
 
@@ -28,10 +29,10 @@ const Form = () => {
     event.preventDefault();
 
     if (email.validate() && senha.validate()) {
-      postDataApi('http://127.0.0.1:5000/cadastrar', {
-        method: 'POST',
+      postDataApi("http://127.0.0.1:5000/cadastrar", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           Nome: email.value,
@@ -44,8 +45,8 @@ const Form = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Faça seu cadastro</h1>
-      <p style={{ marginBottom: '1.6rem' }}>Cadastre suas informações.</p>
+      <h1 className={styles.title}>Faça seu cadastro</h1>
+      <p className={styles.description}>Cadastre suas informações.</p>
       <Input
         label="Email"
         id="email"
@@ -64,7 +65,7 @@ const Form = () => {
         <input type="checkbox" name="termos" id="termos" required />
         <label htmlFor="termos">Aceito os termos</label>
       </div>
-      <button type="submit">{loading ? <Loading /> : 'Cadastrar'}</button>
+      <button type="submit">{loading ? <Loading /> : "Cadastrar"}</button>
     </form>
   );
 };

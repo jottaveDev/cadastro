@@ -1,6 +1,6 @@
-import sideImage from '../assets/side-image.png';
-import Form from './Form';
-import styles from '../App.module.css';
+import styles from "../Componentes/Main.module.css";
+import sideImage from "../assets/side-image.jpg";
+import Form from "./Form";
 
 const Main = () => {
   return (

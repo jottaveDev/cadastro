@@ -1,0 +1,23 @@
+.description {
+  margin-bottom: 1.6rem;
+}
+
+.title {
+  color: #d4ccb6;
+  font-family: Poppins;
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.title::before {
+  content: "";
+  display: inline-block;
+  align-items: center;
+  background: url("../assets/login.svg") no-repeat center center;
+  width: 24px;
+  height: 24px;
+}

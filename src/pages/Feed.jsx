@@ -1,23 +1,15 @@
-import React from 'react';
-import Head from '../Componentes/Head';
+import { Link } from "react-router-dom";
+import Head from "../Componentes/Head";
+import styles from "../pages/Feed.module.css";
 
 const Feed = () => {
   return (
     <>
       <Head title="JE | Feed" description="Página de feed." />
-      <h1
-        style={{
-          color: 'white',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '100vh',
-          fontSize: '4rem',
-          fontFamily: 'Arial',
-        }}
-      >
-        Você está logado
-      </h1>
+      <section className={styles.feed}>
+        <h1>Você está logado</h1>
+        <Link to="/login">Fazer logout</Link>
+      </section>
     </>
   );
 };

@@ -1,5 +1,6 @@
-import logo from '../assets/logo.svg';
-import styles from '../App.module.css';
+import { memo } from "react";
+import styles from "../Componentes/Header.module.css";
+import logo from "../assets/logo.svg";
 
 const Header = () => {
   return (
@@ -9,4 +10,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default memo(Header);

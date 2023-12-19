@@ -1,0 +1,21 @@
+.feed {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.feed h1 {
+  font-size: 4rem;
+}
+
+.feed a {
+  display: inline-block;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  color: inherit;
+}
