@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { POST_USER } from "../api.jsx";
 import Loading from "../helpers/Loading.jsx";
 import useForm from "../hooks/useForm.jsx";
 import styles from "./Form.module.css";
@@ -11,35 +12,26 @@ const Form = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const postDataApi = async (url) => {
-    try {
-      setLoading(true);
-      const response = await fetch(url);
-      const dados = await response.json();
-      navigate("/login");
-
-      return dados;
-    } catch (error) {
-      setLoading(false);
-      email.setError("Email já cadastrado");
-    }
-  };
-
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    const isUserValid = email.validate() && senha.validate();
 
-    if (email.validate() && senha.validate()) {
-      postDataApi("http://127.0.0.1:5000/cadastrar", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          Nome: email.value,
-          Email: email.value,
-          Senha: senha.value,
-        }),
+    if (isUserValid) {
+      const { url, options } = POST_USER({
+        Nome: email.value,
+        Email: email.value,
+        Senha: senha.value,
       });
+      try {
+        setLoading(true);
+        const response = await fetch(url, options);
+        const dados = await response.json();
+        navigate("/login");
+        return dados;
+      } catch (error) {
+        setLoading(false);
+        email.setError("Email já cadastrado");
+      }
     }
   };
 
