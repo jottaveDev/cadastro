@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Head from "../Componentes/Head";
-import Header from "../Componentes/Header";
-import Input from "../Componentes/Input";
-import Loading from "../Componentes/Loading";
 import sideImage from "../assets/side-image.jpg";
+import Header from "../components/Header";
+import Input from "../components/Input";
+import Head from "../helpers/Head";
+import Loading from "../helpers/Loading";
 import useForm from "../hooks/useForm";
 import styles from "../pages/Login.module.css";
 

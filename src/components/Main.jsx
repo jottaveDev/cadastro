@@ -1,6 +1,6 @@
-import styles from "../Componentes/Main.module.css";
 import sideImage from "../assets/side-image.jpg";
 import Form from "./Form";
+import styles from "./Main.module.css";
 
 const Main = () => {
   return (

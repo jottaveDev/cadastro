@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "../Componentes/Form.module.css";
+import Loading from "../helpers/Loading.jsx";
 import useForm from "../hooks/useForm.jsx";
+import styles from "./Form.module.css";
 import Input from "./Input.jsx";
-import Loading from "./Loading.jsx";
 
 const Form = () => {
   const email = useForm("email");

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Head from "../Componentes/Head";
+import Head from "../helpers/Head";
 import styles from "../pages/Feed.module.css";
 
 const Feed = () => {
