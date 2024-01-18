@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { LOGIN } from "../api";
 import sideImage from "../assets/side-image.jpg";
 import Header from "../components/Header";
 import Input from "../components/Input";
@@ -15,31 +16,29 @@ const Home = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  const userLogin = async () => {
+  const login = async () => {
+    const { url, options } = LOGIN({
+      Nome: email.value,
+      Email: email.value,
+      Senha: senha.value,
+    });
     try {
       setLoading(true);
-      await fetch("http://127.0.0.1:5000/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          Nome: email.value,
-          Email: email.value,
-          Senha: senha.value,
-        }),
-      });
+      const response = await fetch(url, options);
+      const data = await response.json();
       navigate("/feed");
+      return data;
     } catch (error) {
       setLoading(false);
       setError("Usuário inválido!");
     }
   };
 
-  function handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    if (email.validate() && senha.validate()) userLogin();
-  }
+    const isUserValid = email.validate() && senha.validate();
+    if (isUserValid) login();
+  };
 
   return (
     <>
