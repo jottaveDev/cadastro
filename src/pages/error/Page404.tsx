@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
-import Head from "../helpers/Head";
+import Head from "../../helpers/Head";
 import styles from "../pages/Page404.module.css";
 
 const Page404 = () => {

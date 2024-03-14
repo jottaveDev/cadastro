@@ -1,4 +1,4 @@
-import InputModel from "../models/Input";
+import InputModel from "../../models/Input";
 
 const Input = ({
   id,

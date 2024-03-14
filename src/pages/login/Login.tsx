@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { LOGIN } from "../api";
+import { LOGIN } from "../../api";
+import Header from "../../components/header/Header";
+import Input from "../../components/input/Input";
+import Head from "../../helpers/Head";
+import Loading from "../../helpers/loading/Loading";
+import useForm from "../../hooks/useForm";
 import sideImage from "../assets/side-image.jpg";
-import Header from "../components/Header";
-import Input from "../components/Input";
-import Head from "../helpers/Head";
-import Loading from "../helpers/Loading";
-import useForm from "../hooks/useForm";
 import styles from "../pages/Login.module.css";
 
 const Home = () => {

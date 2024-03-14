@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./global.css";
-import Feed from "./pages/Feed";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Page404 from "./pages/Page404";
+import Page404 from "./pages/error/Page404";
+import Feed from "./pages/feed/Feed";
+import Home from "./pages/home/Home";
+import Login from "./pages/login/Login";
 
 function App() {
   return (

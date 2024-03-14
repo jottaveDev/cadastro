@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { POST_USER } from "../api.js";
-import Loading from "../helpers/Loading.js";
-import useForm from "../hooks/useForm.js";
+import { POST_USER } from "../../api.jsx";
+import Loading from "../../helpers/loading/Loading.jsx";
+import useForm from "../../hooks/useForm.jsx";
+import Input from "../input/Input.jsx";
 import styles from "./Form.module.css";
-import Input from "./Input.js";
 
 const Form = () => {
   const email = useForm("email");

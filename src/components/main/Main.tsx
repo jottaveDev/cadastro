@@ -1,5 +1,5 @@
 import sideImage from "../assets/side-image.jpg";
-import Form from "./Form";
+import Form from "../form/Form";
 import styles from "./Main.module.css";
 
 const Main = () => {
