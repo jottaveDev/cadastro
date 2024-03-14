@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { POST_USER } from "../api.jsx";
-import Loading from "../helpers/Loading.jsx";
-import useForm from "../hooks/useForm.jsx";
+import { POST_USER } from "../api.js";
+import Loading from "../helpers/Loading.js";
+import useForm from "../hooks/useForm.js";
 import styles from "./Form.module.css";
-import Input from "./Input.jsx";
+import Input from "./Input.js";
 
 const Form = () => {
   const email = useForm("email");
@@ -12,15 +12,15 @@ const Form = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     const isUserValid = email.validate() && senha.validate();
 
     if (isUserValid) {
       const { url, options } = POST_USER({
-        Nome: email.value,
-        Email: email.value,
-        Senha: senha.value,
+        nome: email.value,
+        email: email.value,
+        password: senha.value,
       });
       try {
         setLoading(true);
@@ -30,7 +30,9 @@ const Form = () => {
         return dados;
       } catch (error) {
         setLoading(false);
-        email.setError("Email já cadastrado");
+        if (email.setError) {
+          email.setError("Email já cadastrado");
+        }
       }
     }
   };

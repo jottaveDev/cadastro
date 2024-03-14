@@ -1,6 +1,8 @@
+import { UserData } from "./models/userData";
+
 export const API_URL = "https://jsonplaceholder.typicode.com/posts";
 
-export function POST_USER(body) {
+export function POST_USER(body: UserData) {
   return {
     url: API_URL,
     options: {
@@ -13,7 +15,7 @@ export function POST_USER(body) {
   };
 }
 
-export function LOGIN(body) {
+export function LOGIN(body: UserData) {
   return {
     url: API_URL,
     options: {

@@ -1,3 +1,5 @@
+import InputModel from "../models/Input";
+
 const Input = ({
   id,
   label,
@@ -6,8 +8,8 @@ const Input = ({
   error,
   onChange,
   onBlur,
-  placeHolder,
-}) => {
+  placeholder,
+}: InputModel) => {
   return (
     <div>
       <label htmlFor={id}>{label}</label>
@@ -18,7 +20,7 @@ const Input = ({
         value={value}
         onChange={onChange}
         onBlur={onBlur}
-        placeholder={placeHolder}
+        placeholder={placeholder}
         style={{ borderColor: `${error ? "red" : ""}`, marginBottom: "0" }}
       />
       {error && (

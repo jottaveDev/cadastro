@@ -13,14 +13,13 @@ const Home = () => {
   const email = useForm("email");
   const senha = useForm("password");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<null | string>(null);
   const navigate = useNavigate();
 
   const login = async () => {
     const { url, options } = LOGIN({
-      Nome: email.value,
-      Email: email.value,
-      Senha: senha.value,
+      email: email.value,
+      password: senha.value,
     });
     try {
       setLoading(true);
@@ -34,7 +33,7 @@ const Home = () => {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     const isUserValid = email.validate() && senha.validate();
     if (isUserValid) login();
